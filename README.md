@@ -122,12 +122,11 @@ CSV の「カテゴリ名」「タグ」列の値が DB に存在しない場合
 
 ### 挙動のまとめ
 
-```
-           カテゴリ未存在    タグ未存在
-初期値     error            ignore
-自動作成   create           create
-完全エラー error            error
-```
+| 挙動 | カテゴリ未存在 | タグ未存在 |
+|---|---|---|
+| 初期値 | error | ignore |
+| 自動作成 | create | create |
+| 完全エラー | error | error |
 
 ## テストデータ生成
 
