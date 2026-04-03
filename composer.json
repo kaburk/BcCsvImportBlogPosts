@@ -1,0 +1,16 @@
+{
+    "name": "baserproject/bc-csv-import-blog-posts",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "description": "BcCsvImportCore を使ったブログ記事CSVインポートプラグイン",
+    "vendor-dir": "../../vendor",
+    "autoload": {
+        "psr-4": {
+            "BcCsvImportBlogPosts\\": "src/"
+        }
+    },
+    "require": {
+        "baserproject/bc-csv-import-core": "*",
+        "baserproject/bc-blog": "*"
+    }
+}
