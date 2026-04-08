@@ -17,8 +17,8 @@ use Cake\ORM\TableRegistry;
  * アップロード時に指定された blog_content_id のブログに記事を一括登録する。
  *
  * カテゴリ・タグの挙動は setting.php の以下のキーで制御できる。
- *   BcCsvImportCore.blogCategoryNotFound: 'error' | 'create'
- *   BcCsvImportCore.blogTagNotFound      : 'error' | 'create' | 'ignore'
+ *   BcCsvImportBlogPosts.blogCategoryNotFound: 'error' | 'create'
+ *   BcCsvImportBlogPosts.blogTagNotFound      : 'error' | 'create' | 'ignore'
  *
  * CSVフォーマット:
  *   スラッグ, タイトル, 本文, カテゴリ名, タグ（カンマ区切り）, 公開日時, 公開フラグ（1/0）
@@ -240,7 +240,7 @@ class BlogPostsCsvImportService extends CsvImportService implements CsvImportSer
             return $category->id;
         }
 
-        $mode = Configure::read('BcCsvImportCore.blogCategoryNotFound', 'error');
+        $mode = Configure::read('BcCsvImportBlogPosts.blogCategoryNotFound', 'error');
 
         if ($mode === 'create') {
             $slug = $this->titleToSlug($title);
@@ -314,7 +314,7 @@ class BlogPostsCsvImportService extends CsvImportService implements CsvImportSer
     private function resolveBlogTags(string $tagNamesRaw, int $blogContentId, EntityInterface $entity): ?array
     {
         $tagsTable = TableRegistry::getTableLocator()->get('BcBlog.BlogTags');
-        $mode = Configure::read('BcCsvImportCore.blogTagNotFound', 'ignore');
+        $mode = Configure::read('BcCsvImportBlogPosts.blogTagNotFound', 'ignore');
         $tagNames = array_filter(array_map('trim', explode(',', $tagNamesRaw)));
         $tagIds = [];
 

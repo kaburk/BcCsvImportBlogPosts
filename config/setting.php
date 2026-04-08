@@ -23,16 +23,15 @@ return [
             ],
         ],
     ],
-    'BcCsvImportCore' => [
-        // インポート方式の選択UIを非表示にし、常に追記モードで動作させる
+    'BcCsvImportBlogPosts' => [
+        // --- UI 設定 ---
+        // コントローラーの resolveUiSettings() がこのキーを優先して読む
         'showImportStrategySelect' => false,
         'defaultImportStrategy'    => 'append',
-
-        // 重複処理の選択UIを非表示にし、常にスキップで動作させる
-        // （スラッグが同じ記事は上書きせず読み飛ばす）
         'showDuplicateModeSelect'  => false,
         'defaultDuplicateMode'     => 'skip',
 
+        // --- サービス設定 ---
         // CSV の「カテゴリ名」列に指定したカテゴリが DB に存在しなかった場合の挙動
         //   'error'  : その行をエラーとしてスキップする（推奨: 意図しないカテゴリ作成を防ぐ）
         //   'create' : 同名のカテゴリを自動作成してインポートを続行する
