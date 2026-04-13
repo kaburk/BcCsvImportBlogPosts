@@ -26,9 +26,7 @@ return [
     'BcCsvImportBlogPosts' => [
         // --- UI 設定 ---
         // コントローラーの resolveUiSettings() がこのキーを優先して読む
-        'showImportStrategySelect' => false,
         'defaultImportStrategy'    => 'append',
-        'showDuplicateModeSelect'  => false,
         'defaultDuplicateMode'     => 'skip',
 
         // --- サービス設定 ---
