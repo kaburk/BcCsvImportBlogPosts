@@ -5,4 +5,10 @@ return [
     'description' => __d('baser_core', 'ブログ記事CSVインポートプラグインです。別途BcCsvImportCoreが必要です'),
     'author' => 'kaburk',
     'url' => 'https://blog.kaburk.com/',
+    'adminLink' => [
+        'prefix' => 'Admin',
+        'plugin' => 'BcCsvImportBlogPosts',
+        'controller' => 'BlogPostsCsvImports',
+        'action' => 'index',
+    ],
 ];
