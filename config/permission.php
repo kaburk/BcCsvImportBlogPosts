@@ -53,6 +53,12 @@ return [
                     'method' => 'POST',
                     'auth' => true,
                 ],
+                'DeleteAll' => [
+                    'title' => __d('baser_core', 'ジョブ一括削除'),
+                    'url' => '/baser/admin/bc-csv-import-blog-posts/blog_posts_csv_imports/delete_all',
+                    'method' => 'POST',
+                    'auth' => true,
+                ],
                 'DownloadTemplate' => [
                     'title' => __d('baser_core', 'テンプレートCSVダウンロード'),
                     'url' => '/baser/admin/bc-csv-import-blog-posts/blog_posts_csv_imports/download_template',
