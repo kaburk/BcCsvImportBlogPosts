@@ -11,9 +11,12 @@
  * @var array $historyJobs
  * @var array $blogOptions [blog_content_id => 'サイト名 / ブログ名']
  */
-$this->BcAdmin->setTitle(__d('baser_core', 'ブログ記事CSVインポート'));
+use BaserCore\Utility\BcUtil;
 
-$adminBase = '/baser/admin/bc-csv-import-blog-posts/blog_posts_csv_imports';
+$this->BcAdmin->setTitle(__d('baser_core', 'ブログ記事CSVインポート'));
+$basePath = rtrim((string)$this->request->getAttribute('base'), '/');
+$adminBase = $basePath . '/' . ltrim(BcUtil::getPrefix(), '/') . '/bc-csv-import-blog-posts/blog_posts_csv_imports';
+$assetUrl = $basePath . '/bc_csv_import_core/js/admin/csv_import.js';
 $batchSize = \Cake\Core\Configure::read('BcCsvImportCore.batchSize', 1000);
 $csrfToken = $this->request->getAttribute('csrfToken');
 ?>
@@ -487,4 +490,4 @@ $csrfToken = $this->request->getAttribute('csrfToken');
   data-admin-base="<?= h($adminBase) ?>"
   data-csrf-token="<?= h($csrfToken) ?>"
   data-batch-size="<?= (int)$batchSize ?>"></div>
-<script src="/bc_csv_import_core/js/admin/csv_import.js"></script>
+<script src="<?= h($assetUrl) ?>"></script>
